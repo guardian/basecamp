@@ -11,19 +11,19 @@
     "astro": "astro"
   },
   "devDependencies": {
+    "@astrojs/react": "2.2.1",
     "@emotion/react": "11.11.1",
     "@guardian/package-linter": "0.5.3",
     "@guardian/source-foundations": "13.0.0",
     "@guardian/source-react-components": "15.0.2",
+    "@guardian/tsconfig": "0.2.0",
+    "@types/node": "18.17",
+    "@types/react": "18.0.21",
+    "@types/react-dom": "18.0.6",
     "astro": "2.9.5",
     "emotion": "11.0.0",
-    "react": "18.2.0"
-  },
-  "dependencies": {
-    "@astrojs/react": "^2.2.1",
-    "@guardian/tsconfig": "^0.2.0",
-    "@types/react": "^18.0.21",
-    "@types/react-dom": "^18.0.6",
-    "react-dom": "^18.0.0"
+    "react": "18.2.0",
+    "react-dom": "18.0.0",
+    "typescript": "5.1.6"
   }
 }

@@ -1,0 +1,8 @@
+{
+  "extends": "@guardian/tsconfig",
+  "compilerOptions": {
+    "importsNotUsedAsValues": "error",
+    "jsx": "react-jsx",
+    "jsxImportSource": "@emotion/react"
+  }
+}

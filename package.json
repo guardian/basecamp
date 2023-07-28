@@ -12,6 +12,7 @@
   },
   "devDependencies": {
     "@astrojs/react": "2.2.1",
+    "@emotion/css": "11.11.2",
     "@emotion/react": "11.11.1",
     "@guardian/package-linter": "0.5.3",
     "@guardian/source-foundations": "13.0.0",

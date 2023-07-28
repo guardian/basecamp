@@ -1,5 +1,6 @@
 ---
-import { Footer } from "@guardian/source-react-components";
+import { Button, Footer } from "@guardian/source-react-components";
+import { Example } from "../components/Example";
 ---
 
 <html lang="en">
@@ -11,9 +12,23 @@ import { Footer } from "@guardian/source-react-components";
     <title>Basecamp</title>
   </head>
   <body>
-    <h1>Let’s get this started</h1>
+    <h1>Food by Basecamp</h1>
+
+    <Example />
+
+    <Button client:only>Click me</Button>
+
+    <Footer client:only />
   </body>
-  <Footer />
+  <script>
+    import { sheet } from "@emotion/css";
+
+    sheet?.speedy(false);
+  </script>
 </html>
 
-<style></style>
+<style>
+  body {
+    color: #111;
+  }
+</style>

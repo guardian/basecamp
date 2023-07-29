@@ -3,7 +3,7 @@ lockfileVersion: '6.0'
 devDependencies:
   '@astrojs/react':
     specifier: 2.2.1
-    version: 2.2.1(@types/react-dom@18.0.6)(@types/react@18.0.21)(react-dom@18.0.0)(react@18.2.0)
+    version: 2.2.1(@types/react-dom@18.0.6)(@types/react@18.0.21)(react-dom@18.2.0)(react@18.2.0)
   '@emotion/css':
     specifier: 11.11.2
     version: 11.11.2
@@ -41,8 +41,8 @@ devDependencies:
     specifier: 18.2.0
     version: 18.2.0
   react-dom:
-    specifier: 18.0.0
-    version: 18.0.0(react@18.2.0)
+    specifier: 18.2.0
+    version: 18.2.0(react@18.2.0)
   typescript:
     specifier: 5.1.6
     version: 5.1.6
@@ -114,7 +114,7 @@ packages:
       prismjs: 1.29.0
     dev: true
 
-  /@astrojs/react@2.2.1(@types/react-dom@18.0.6)(@types/react@18.0.21)(react-dom@18.0.0)(react@18.2.0):
+  /@astrojs/react@2.2.1(@types/react-dom@18.0.6)(@types/react@18.0.21)(react-dom@18.2.0)(react@18.2.0):
     resolution: {integrity: sha512-nq5Zr8iWdwjSp5fh1NReaCplwsnL4w5PXAY5XWu1jE/frxEfF/ycGHrrhwWW0uJHX9G+kUtmQLR0GBhlR4FmAw==}
     engines: {node: '>=16.12.0'}
     peerDependencies:
@@ -128,7 +128,7 @@ packages:
       '@types/react': 18.0.21
       '@types/react-dom': 18.0.6
       react: 18.2.0
-      react-dom: 18.0.0(react@18.2.0)
+      react-dom: 18.2.0(react@18.2.0)
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -2971,14 +2971,14 @@ packages:
     resolution: {integrity: sha512-NuaNSa6flKT5JaSYQzJok04JzTL1CA6aGhv5rfLW3PgqA+M2ChpZQnAC8h8i4ZFkBS8X5RqkDBHA7r4hej3K9A==}
     dev: true
 
-  /react-dom@18.0.0(react@18.2.0):
-    resolution: {integrity: sha512-XqX7uzmFo0pUceWFCt7Gff6IyIMzFUn7QMZrbrQfGxtaxXZIcGQzoNpRLE3fQLnS4XzLLPMZX2T9TRcSrasicw==}
+  /react-dom@18.2.0(react@18.2.0):
+    resolution: {integrity: sha512-6IMTriUmvsjHUjNtEDudZfuDQUoWXVxKHhlEGSk81n4YFS+r/Kl99wXiwlVXtPBtJenozv2P+hxDsw9eA7Xo6g==}
     peerDependencies:
-      react: ^18.0.0
+      react: ^18.2.0
     dependencies:
       loose-envify: 1.4.0
       react: 18.2.0
-      scheduler: 0.21.0
+      scheduler: 0.23.0
     dev: true
 
   /react-is@16.13.1:
@@ -3189,8 +3189,8 @@ packages:
       suf-log: 2.5.3
     dev: true
 
-  /scheduler@0.21.0:
-    resolution: {integrity: sha512-1r87x5fz9MXqswA2ERLo0EbOAU74DpIUO090gIasYTqlVoJeMcl+Z1Rg7WHz+qtPujhS/hGIt9kxZOYBV3faRQ==}
+  /scheduler@0.23.0:
+    resolution: {integrity: sha512-CtuThmgHNg7zIZWAXi3AsyIzA3n4xx7aNyjwC2VJldO2LMVDhFK+63xGqq6CsJH4rTAt6/M+N4GhZiDYPx9eUw==}
     dependencies:
       loose-envify: 1.4.0
     dev: true

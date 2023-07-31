@@ -1,74 +1,21 @@
 import { css } from "@emotion/react";
+import { Button, SvgGuardianLogo } from "@guardian/source-react-components";
 import {
-  Button,
-  Footer,
-  SvgGuardianLogo,
-} from "@guardian/source-react-components";
-import { fonts, from, palette } from "@guardian/source-foundations";
+  fontWeights,
+  fonts,
+  from,
+  palette,
+  space,
+} from "@guardian/source-foundations";
 import { Image } from "../../shared/Image";
 import Head from "next/head";
-
-const grid = css`
-  display: grid;
-
-  grid-template-columns:
-    [viewport-start]
-    0px
-    [content-start]
-    repeat(4, minmax(0, 1fr))
-    [content-end]
-    0px
-    [viewport-start];
-
-  column-gap: 10px;
-
-  ${from.mobileLandscape} {
-    column-gap: 20px;
-  }
-
-  ${from.tablet} {
-    grid-template-columns:
-      [viewport-start]
-      minmax(0, 1fr)
-      [content-start]
-      repeat(12, 40px)
-      [content-end]
-      minmax(0, 1fr)
-      [viewport-end];
-  }
-
-  ${from.desktop} {
-    grid-template-columns:
-      [viewport-start]
-      minmax(0, 1fr)
-      [content-start]
-      repeat(12, 60px)
-      [content-end]
-      minmax(0, 1fr)
-      [viewport-end];
-  }
-  ${from.leftCol} {
-    grid-template-columns:
-      [viewport-start]
-      minmax(0, 1fr)
-      [content-start]
-      repeat(14, 60px)
-      [content-end]
-      minmax(0, 1fr)
-      [viewport-end];
-  }
-
-  ${from.wide} {
-    grid-template-columns:
-      [viewport-start]
-      minmax(0, 1fr)
-      [content-start]
-      repeat(16, 60px)
-      [content-end]
-      minmax(0, 1fr)
-      [viewport-end];
-  }
-`;
+import {
+  Content,
+  Grid,
+  LeftColumn,
+  MainColumn,
+  Lines,
+} from "../../shared/Grid";
 
 const navLink = css`
   color: ${palette.neutral[100]};
@@ -124,11 +71,19 @@ const Home = () => (
       <title>Basecamp | Guardian</title>
     </Head>
 
-    <header style={{ backgroundColor: palette.brand[400] }} css={grid}>
+    <Grid
+      style={{
+        backgroundColor: palette.brand[400],
+        gridTemplateRows: "auto 38px",
+        rowGap: "12px",
+      }}
+      type="header"
+    >
       <div
         css={css`
           width: 225px;
           grid-column: -4 / span 2;
+          grid-row-start: 1;
           justify-self: end;
 
           ${from.desktop} {
@@ -141,20 +96,11 @@ const Home = () => (
       </div>
       <nav
         css={css`
-          grid-area: viewport;
-
-          border-top: 1px solid ${palette.brand[600]};
-
+          grid-column: content;
+          grid-row-start: 2;
           font-family: ${fonts.headline};
           font-weight: 900;
           display: flex;
-
-          ${from.tablet} {
-            grid-area: content;
-            border-left: 1px solid ${palette.brand[600]};
-            border-right: 1px solid ${palette.brand[600]};
-            margin: 0 -10px;
-          }
         `}
       >
         <a
@@ -198,25 +144,30 @@ const Home = () => (
           Lifestyle
         </a>
       </nav>
-    </header>
+      <Lines top={true} colour={palette.brand[600]} gridRowStart={2} />
+    </Grid>
 
-    <main style={{ backgroundColor: palette.neutral[100] }} css={grid}>
-      <section
-        css={css`
-          grid-area: content;
-          font-family: ${fonts.body};
+    <Grid type="main" style={{ backgroundColor: palette.neutral[100] }}>
+      <LeftColumn>
+        <div
+          css={css`
+            font-family: ${fonts.body};
+            padding-top: ${space[3]}px;
+          `}
+        >
+          Content for the left column
+        </div>
+      </LeftColumn>
+
+      <MainColumn
+        styles={css`
           min-height: 70dvh;
-
-          ${from.tablet} {
-            border-left: 1px solid ${palette.neutral[86]};
-            border-right: 1px solid ${palette.neutral[86]};
-            padding: 0 9px;
-            margin: 0 -10px;
-          }
         `}
       >
         <h1
           css={css`
+            margin: 0;
+            padding-top: ${space[2]}px;
             font-family: ${fonts.headline};
             font-weight: 500;
           `}
@@ -224,7 +175,13 @@ const Home = () => (
           Let’s get cooking!
         </h1>
 
-        <p>Some text about this page…</p>
+        <p
+          css={css`
+            font-family: ${fonts.body};
+          `}
+        >
+          Some text about this page…
+        </p>
 
         <Button>Click me</Button>
 
@@ -239,14 +196,46 @@ const Home = () => (
           height={300}
         />
 
-        <ol>
+        <ol
+          css={css`
+            font-family: ${fonts.body};
+          `}
+        >
           <li>First thing</li>
           <li>Second thing</li>
           <li>Third thing</li>
         </ol>
-      </section>
-    </main>
-    <Footer />
+      </MainColumn>
+      <Lines />
+    </Grid>
+    <Grid
+      type="footer"
+      style={{ color: palette.neutral[100], gridTemplateRows: "auto auto" }}
+    >
+      <Content
+        styles={css`
+          grid-row-start: 1;
+          font-family: ${fonts.body};
+        `}
+      >
+        <nav style={{ gridColumn: "content" }}>
+          (Need to add the Navigation links here)
+        </nav>
+      </Content>
+      <div
+        css={css`
+          grid-column: content;
+          font-family: ${fonts.textSans};
+          font-weight: ${fontWeights.regular};
+          font-size: 12px;
+          margin-top: ${space[2]}px;
+        `}
+      >
+        © 2023 Guardian News and Media Limited or its affiliated companies. All
+        rights reserved.
+      </div>
+      <Lines bottom={true} colour={palette.brand[600]} />
+    </Grid>
   </>
 );
 

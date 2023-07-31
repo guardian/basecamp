@@ -4,7 +4,7 @@ import {
   Footer,
   SvgGuardianLogo,
 } from "@guardian/source-react-components";
-import { fonts, from, palette } from "@guardian/source-foundations";
+import { fonts, from, palette, space } from "@guardian/source-foundations";
 import { Image } from "../../shared/Image";
 import Head from "next/head";
 import { Bullet } from "../../src/components/Bullet";
@@ -208,19 +208,29 @@ const Home = () => (
           font-family: ${fonts.body};
           min-height: 70dvh;
           line-height: 130%;
+          
+          /////
+          display: flex;
+          ////
 
           ${from.tablet} {
             border-left: 1px solid ${palette.neutral[86]};
             border-right: 1px solid ${palette.neutral[86]};
-            padding: 0 9px;
-            margin: 0 -10px;
+            padding: 0 ${space[5]}px;
+            padding-right: 0;
+            margin: 0;
+            margin-left: -10px;
+            margin-right: 5px;
           }
         `}
       >
+        <div css={css`min-width: 50%; padding-right: ${space[4]}px;`}>
         <h1
           css={css`
             font-family: ${fonts.titlepiece};
+            font-size: 50px;
             font-weight: 700;
+            line-height: 115%;
           `}
         >
           The best chefs at your fingertips
@@ -234,16 +244,17 @@ const Home = () => (
             <Bullet text="Save your favourite recipes to your Cookbook and connect with other home chefs" />
           </ul>
         <br />
-      </section>
-      <section>
-      <Image
+        </div>
+
+        <div css={css`flex-basis: 50%; max-width: 50%; min-width: 50%; overflow: hidden;`}>
+      <img
           src={
-            "https://media.guim.co.uk/831af4eb6748dd6153d6fca7d61f6e5aa21cdee3/0_0_3663_4319/4319.jpg"
+            "https://media.guim.co.uk/cbc320f9252d33f17c88353a3bc7945901b2549f/0_0_640_775/640.jpg"
           }
           alt="Ottolenghi’s salad"
-          width={400}
-          height={500}
+          css={css`object-fit: cover;`}
         />
+        </div>
       </section>
     </main>
     <Footer />

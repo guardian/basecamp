@@ -2,7 +2,7 @@
 const nextConfig = {
   output: "export",
   distDir: "dist",
-  basePath: "/basecamp",
+  basePath: process.env.PRODUCTION ? "/basecamp" : undefined,
   reactStrictMode: true,
   compiler: {
     emotion: true,

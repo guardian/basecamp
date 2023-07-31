@@ -6,13 +6,19 @@ import {
   space,
 } from "@guardian/source-foundations";
 import Head from "next/head";
-import { Bullet } from "../../shared/Bullet";
-import { Grid, Lines } from "../../shared/Grid";
-import { Image } from "../../shared/Image";
-import { Header } from "../../shared/Header";
-import Footer from "../../shared/footer/footer";
+import { Bullet } from "./Bullet";
+import { Grid, Lines } from "./Grid";
+import { Image } from "./Image";
+import { Header } from "./Header";
+import Footer from "./footer/footer";
 
-const Home = () => (
+interface TemplateProps {
+  title: string;
+  description: string[];
+  benefits: string[]
+}
+
+const Template = ({title, description, benefits}: TemplateProps) => (
   <>
     <Head>
       <title>Basecamp | Guardian</title>
@@ -80,29 +86,23 @@ const Home = () => (
             margin-top: ${space[ 4 ]}px;
           `}
         >
-          The best chefs at your fingertips
+          {title}
         </h1>
 
-        <p>
-          Unleash your culinary creativity: discover a world of delicious dishes
-          to make at home.{" "}
-        </p>
-        <p>
-          For the first time, access thousands of recipes by star chefs from the
-          Guardian and the Observer. From weeknight delights to special occasion
-          meals that impress. Search thousands of recipes by diet, cuisine or
-          ingredient, save your favourites and share with a friend.{" "}
-        </p>
+        {description.map(para => <p>{para}</p>)}
         <ul
           css={css`
             list-style: none;
             padding-left: 0;
           `}
         >
-          <Bullet text="Unlimited access to Guardian and Observer recipes from your favourite chefs" />
+          {benefits.map(benefit => <Bullet text={benefit} />)}
+          {/* <Bullet text="Unlimited access to Guardian and Observer recipes from your favourite chefs" />
           <Bullet text="Discover new cuisines with exclusive recipes and tips published each week" />
-          <Bullet text="Save your favourite recipes to your Cookbook and connect with other home chefs" />
+          <Bullet text="Save your favourite recipes to your Cookbook and connect with other home chefs" /> */}
         </ul>
+        <p>We’re cooking up something new*. Interested? Keep your eyes peeled for more information soon.</p>
+        <p css={css`font-family: ${fonts.textSans}; font-size: ${space[3]}px;`}>*it is not guaranteed the features described here will be included in the final product</p>
         <br />
       </div>
       <div
@@ -136,4 +136,4 @@ const Home = () => (
   </>
 );
 
-export default Home;
+export default Template;

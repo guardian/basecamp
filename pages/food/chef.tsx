@@ -4,72 +4,18 @@ import {
   Footer,
   SvgGuardianLogo,
 } from "@guardian/source-react-components";
-import { fonts, from, palette, space, until } from "@guardian/source-foundations";
-import { Image } from "../../shared/Image";
+import {
+  fontWeights,
+  fonts,
+  from,
+  palette,
+  space,
+  until,
+} from "@guardian/source-foundations";
 import Head from "next/head";
 import { Bullet } from "../../src/components/Bullet";
-
-const grid = css`
-  display: grid;
-
-  grid-template-columns:
-    [viewport-start]
-    0px
-    [content-start]
-    repeat(4, minmax(0, 1fr))
-    [content-end]
-    0px
-    [viewport-start];
-
-  column-gap: 10px;
-
-  ${from.mobileLandscape} {
-    column-gap: 20px;
-  }
-
-  ${from.tablet} {
-    grid-template-columns:
-      [viewport-start]
-      minmax(0, 1fr)
-      [content-start]
-      repeat(12, 40px)
-      [content-end]
-      minmax(0, 1fr)
-      [viewport-end];
-  }
-
-  ${from.desktop} {
-    grid-template-columns:
-      [viewport-start]
-      minmax(0, 1fr)
-      [content-start]
-      repeat(12, 60px)
-      [content-end]
-      minmax(0, 1fr)
-      [viewport-end];
-  }
-  ${from.leftCol} {
-    grid-template-columns:
-      [viewport-start]
-      minmax(0, 1fr)
-      [content-start]
-      repeat(14, 60px)
-      [content-end]
-      minmax(0, 1fr)
-      [viewport-end];
-  }
-
-  ${from.wide} {
-    grid-template-columns:
-      [viewport-start]
-      minmax(0, 1fr)
-      [content-start]
-      repeat(16, 60px)
-      [content-end]
-      minmax(0, 1fr)
-      [viewport-end];
-  }
-`;
+import { Content, Grid, Lines } from "../../shared/Grid";
+import { Image } from "../../shared/Image";
 
 const navLink = css`
   color: ${palette.neutral[100]};
@@ -125,7 +71,14 @@ const Home = () => (
       <title>Basecamp | Guardian</title>
     </Head>
 
-    <header style={{ backgroundColor: palette.brand[400] }} css={grid}>
+    <Grid
+      style={{
+        backgroundColor: palette.brand[400],
+        gridTemplateRows: "auto 38px",
+        rowGap: "12px",
+      }}
+      type="header"
+    >
       <div
         css={css`
           width: 225px;
@@ -199,12 +152,13 @@ const Home = () => (
           Lifestyle
         </a>
       </nav>
-    </header>
+    </Grid>
 
-    <main style={{ backgroundColor: palette.neutral[100] }} css={grid}>
-      <section
+    <Grid style={{ backgroundColor: palette.neutral[100] }} type="main">
+      {/* <section
         css={css`
-          grid-area: content;
+          grid-column-start: content;
+          grid-column-end: content;
           font-family: ${fonts.body};
           min-height: 70dvh;
           line-height: 130%;
@@ -223,8 +177,20 @@ const Home = () => (
             flex-direction: row;
           }
         `}
+      > */}
+      <Lines />
+      <div
+        css={css`
+          grid-row-start: 1;
+          grid-column-start: content;
+          grid-column-end: content;
+          ${from.desktop} {
+            grid-column-end: span 7;
+          }
+          min-width: 50%;
+          padding-right: ${space[4]}px;
+        `}
       >
-        <div css={css`min-width: 50%; padding-right: ${space[4]}px;`}>
         <h1
           css={css`
             font-family: ${fonts.titlepiece};
@@ -236,17 +202,30 @@ const Home = () => (
           The best chefs at your fingertips
         </h1>
 
-        <p>Unleash your culinary creativity: discover a world of delicious dishes to make at home. </p>
-        <p>For the first time, access thousands of recipes by star chefs from the Guardian and the Observer. From weeknight delights to special occasion meals that impress. Search thousands of recipes by diet, cuisine or ingredient, save your favourites and share with a friend. </p>
-          <ul css={css`list-style: none; padding-left: 0;`}>
-            <Bullet text="Unlimited access to Guardian and Observer recipes from your favourite chefs" />
-            <Bullet text="Discover new cuisines with exclusive recipes and tips published each week" />
-            <Bullet text="Save your favourite recipes to your Cookbook and connect with other home chefs" />
-          </ul>
+        <p>
+          Unleash your culinary creativity: discover a world of delicious dishes
+          to make at home.{" "}
+        </p>
+        <p>
+          For the first time, access thousands of recipes by star chefs from the
+          Guardian and the Observer. From weeknight delights to special occasion
+          meals that impress. Search thousands of recipes by diet, cuisine or
+          ingredient, save your favourites and share with a friend.{" "}
+        </p>
+        <ul
+          css={css`
+            list-style: none;
+            padding-left: 0;
+          `}
+        >
+          <Bullet text="Unlimited access to Guardian and Observer recipes from your favourite chefs" />
+          <Bullet text="Discover new cuisines with exclusive recipes and tips published each week" />
+          <Bullet text="Save your favourite recipes to your Cookbook and connect with other home chefs" />
+        </ul>
         <br />
-        </div>
+      </div>
 
-        <div css={css`${from.desktop} {display: none;}`}>
+      {/* <div css={css`${from.desktop} {display: none;}`}>
       <img
           src={
             "https://media.guim.co.uk/f15e099752e2d2150c2cd013da43fb004e879183/0_0_700_420/700.jpg"
@@ -254,20 +233,57 @@ const Home = () => (
           alt="recipe images mobile"
           css={css`max-width: 100%;`}
         />
-        </div>
+        </div> */}
 
-        <div css={css`flex-basis: 50%; max-width: 50%; min-width: 50%; overflow: hidden;${until.desktop} { display: none;}}`}>
-      <img
-          src={
-            "https://media.guim.co.uk/cbc320f9252d33f17c88353a3bc7945901b2549f/0_0_640_775/640.jpg"
+      <div
+        css={css`
+          grid-row-start: 1;
+          grid-column-end: content-end;
+          margin-right: -9px;
+          display: none;
+          ${from.desktop} {
+            grid-column-start: 9;
+            display: block;
           }
-          alt="recipe images desktop"
-          css={css`object-fit: cover;`}
+        `}
+      >
+        <Image
+          src="https://media.guim.co.uk/cbc320f9252d33f17c88353a3bc7945901b2549f/0_0_640_775/640.jpg"
+          width={640}
+          height={755}
+          alt="recipe images"
         />
-        </div>
-      </section>
-    </main>
-    <Footer />
+      </div>
+      {/* </section> */}
+    </Grid>
+    <Grid
+      type="footer"
+      style={{ color: palette.neutral[100], gridTemplateRows: "auto auto" }}
+    >
+      <Content
+        styles={css`
+          grid-row-start: 1;
+          font-family: ${fonts.body};
+        `}
+      >
+        <nav style={{ gridColumn: "content" }}>
+          (Need to add the Navigation links here)
+        </nav>
+      </Content>
+      <div
+        css={css`
+          grid-column: content;
+          font-family: ${fonts.textSans};
+          font-weight: ${fontWeights.regular};
+          font-size: 12px;
+          margin-top: ${space[2]}px;
+        `}
+      >
+        © 2023 Guardian News and Media Limited or its affiliated companies. All
+        rights reserved.
+      </div>
+      <Lines bottom={true} colour={palette.brand[600]} />
+    </Grid>
   </>
 );
 

@@ -155,48 +155,53 @@ const Home = () => (
     </Grid>
 
     <Grid style={{ backgroundColor: palette.neutral[100] }} type="main">
-      {/* <section
-        css={css`
-          grid-column-start: content;
-          grid-column-end: content;
-          font-family: ${fonts.body};
-          min-height: 70dvh;
-          line-height: 130%;
-          display: flex;
-          flex-direction: column-reverse;
-          ${from.tablet} {
-            border-left: 1px solid ${palette.neutral[86]};
-            border-right: 1px solid ${palette.neutral[86]};
-            padding: 0 ${space[5]}px;
-            padding-right: 0;
-            margin: 0;
-            margin-left: -10px;
-            margin-right: 5px;
-          }
-          ${from.desktop} {
-            flex-direction: row;
-          }
-        `}
-      > */}
-      <Lines />
+        {from.desktop && <Lines /> }
       <div
         css={css`
           grid-row-start: 1;
           grid-column-start: content;
           grid-column-end: content;
+          font-family: ${fonts.body};
+          font-size: 17px;
+          line-height: 130%;
+          padding: ${space[2]}px;
           ${from.desktop} {
             grid-column-end: span 7;
+            padding-left: ${space[4]}px;
+            padding-right: ${space[4]}px;
           }
           min-width: 50%;
-          padding-right: ${space[4]}px;
         `}
       >
+        <div
+          css={css`
+            grid-column-start: content;
+            grid-column-end: content;
+            grid-row-start: content;
+            grid-row-end: 3 span;
+            margin: 0 -29px;
+            ${from.desktop} {
+              display: none;
+            }
+          `}
+        >
+          <Image
+            src="https://media.guim.co.uk/f15e099752e2d2150c2cd013da43fb004e879183/0_0_700_420/700.jpg"
+            width={700}
+            height={420}
+            alt="recipe images"
+          />
+        </div>
         <h1
           css={css`
             font-family: ${fonts.titlepiece};
-            font-size: 50px;
+            font-size: 42px;
+            ${from.tablet} {
+              font-size: 50px;
+            }
             font-weight: 700;
             line-height: 115%;
+            margin-top: ${space[4]}px;
           `}
         >
           The best chefs at your fingertips
@@ -224,17 +229,6 @@ const Home = () => (
         </ul>
         <br />
       </div>
-
-      {/* <div css={css`${from.desktop} {display: none;}`}>
-      <img
-          src={
-            "https://media.guim.co.uk/f15e099752e2d2150c2cd013da43fb004e879183/0_0_700_420/700.jpg"
-          }
-          alt="recipe images mobile"
-          css={css`max-width: 100%;`}
-        />
-        </div> */}
-
       <div
         css={css`
           grid-row-start: 1;
@@ -248,13 +242,12 @@ const Home = () => (
         `}
       >
         <Image
-          src="https://media.guim.co.uk/cbc320f9252d33f17c88353a3bc7945901b2549f/0_0_640_775/640.jpg"
+          src="https://media.guim.co.uk/a619525a9e0eee22889cb2321157477903223313/0_0_640_775/640.jpg"
           width={640}
           height={755}
           alt="recipe images"
         />
       </div>
-      {/* </section> */}
     </Grid>
     <Grid
       type="footer"

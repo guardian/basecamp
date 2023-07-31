@@ -4,7 +4,7 @@ import {
   Footer,
   SvgGuardianLogo,
 } from "@guardian/source-react-components";
-import { fonts, from, palette, space } from "@guardian/source-foundations";
+import { fonts, from, palette, space, until } from "@guardian/source-foundations";
 import { Image } from "../../shared/Image";
 import Head from "next/head";
 import { Bullet } from "../../src/components/Bullet";
@@ -208,11 +208,8 @@ const Home = () => (
           font-family: ${fonts.body};
           min-height: 70dvh;
           line-height: 130%;
-          
-          /////
           display: flex;
-          ////
-
+          flex-direction: column-reverse;
           ${from.tablet} {
             border-left: 1px solid ${palette.neutral[86]};
             border-right: 1px solid ${palette.neutral[86]};
@@ -221,6 +218,9 @@ const Home = () => (
             margin: 0;
             margin-left: -10px;
             margin-right: 5px;
+          }
+          ${from.desktop} {
+            flex-direction: row;
           }
         `}
       >
@@ -246,12 +246,22 @@ const Home = () => (
         <br />
         </div>
 
-        <div css={css`flex-basis: 50%; max-width: 50%; min-width: 50%; overflow: hidden;`}>
+        <div css={css`${from.desktop} {display: none;}`}>
+      <img
+          src={
+            "https://media.guim.co.uk/f15e099752e2d2150c2cd013da43fb004e879183/0_0_700_420/700.jpg"
+          }
+          alt="recipe images mobile"
+          css={css`max-width: 100%;`}
+        />
+        </div>
+
+        <div css={css`flex-basis: 50%; max-width: 50%; min-width: 50%; overflow: hidden;${until.desktop} { display: none;}}`}>
       <img
           src={
             "https://media.guim.co.uk/cbc320f9252d33f17c88353a3bc7945901b2549f/0_0_640_775/640.jpg"
           }
-          alt="Ottolenghi’s salad"
+          alt="recipe images desktop"
           css={css`object-fit: cover;`}
         />
         </div>

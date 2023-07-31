@@ -16,8 +16,8 @@ export const Bullet = ({ text }: { text: string }) => {
         css={css`
           border-radius: 999px;
           background: #fec8d3;
-          width: 12px;
-          height: 12px;
+          min-width: 12px;
+          min-height: 12px;
         `}
       />
       <p

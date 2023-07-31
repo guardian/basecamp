@@ -63,7 +63,9 @@ const grid = css`
       repeat(3, 60px)
       [left-column-end main-column-start]
       repeat(12, 60px)
-      [content-end main-column-end]
+      [main-column-end]
+      repeat(1, 60px)
+      [content-end]
       minmax(0, 1fr)
       [viewport-end];
   }
@@ -163,7 +165,7 @@ export const Lines = ({
 
       margin: 0 -10px;
 
-      ${between.mobileLandscape.and.tablet} {
+      ${from.mobileLandscape} {
         margin: 0 -20px;
       }
 

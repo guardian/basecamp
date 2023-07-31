@@ -16,6 +16,7 @@ import {
   Lines,
 } from "../../shared/Grid";
 import { Header } from "../../shared/Header";
+import { Footer } from "../../shared/Footer";
 
 const Home = () => (
   <>
@@ -87,34 +88,7 @@ const Home = () => (
       <Lines />
     </Grid>
 
-    <Grid
-      type="footer"
-      style={{ color: palette.neutral[100], gridTemplateRows: "auto auto" }}
-    >
-      <Content
-        styles={css`
-          grid-row-start: 1;
-          font-family: ${fonts.body};
-        `}
-      >
-        <nav style={{ gridColumn: "content" }}>
-          (Need to add the Navigation links here)
-        </nav>
-      </Content>
-      <div
-        css={css`
-          grid-column: content;
-          font-family: ${fonts.textSans};
-          font-weight: ${fontWeights.regular};
-          font-size: 12px;
-          margin-top: ${space[2]}px;
-        `}
-      >
-        © 2023 Guardian News and Media Limited or its affiliated companies. All
-        rights reserved.
-      </div>
-      <Lines bottom={true} colour={palette.brand[600]} />
-    </Grid>
+    <Footer />
   </>
 );
 

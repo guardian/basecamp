@@ -3,9 +3,6 @@ import { GetStaticProps, InferGetStaticPropsType } from "next";
 import Link from "next/link";
 import { fonts, palette } from "@guardian/source-foundations";
 import { css } from "@emotion/react";
-import config from "../next.config";
-
-const basePath = config.basePath ?? "";
 
 const endsWithTsx = /\.tsx$/;
 
@@ -36,7 +33,7 @@ const Home = ({ links }: InferGetStaticPropsType<typeof getStaticProps>) => (
     <ul>
       {links.map((link) => (
         <li key={link}>
-          <Link key={link} href={basePath + link.replace("index", "")}>
+          <Link key={link} href={link.replace("index", "")}>
             {link.replaceAll(/-/g, " ")}
           </Link>
         </li>

@@ -17,7 +17,6 @@ export const Header = () => (
       css={css`
         grid-row-start: 1;
         grid-column: viewport;
-        background-color: ${palette.brand[300]};
       `}
     />
     <div

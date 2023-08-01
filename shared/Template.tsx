@@ -10,7 +10,7 @@ import { Bullet } from "./Bullet";
 import { Grid, Lines } from "./Grid";
 import { Image } from "./Image";
 import { Header } from "./Header";
-import Footer from "./footer/footer";
+import {Footer} from "./Footer";;
 
 interface TemplateProps {
   title: string;
@@ -41,6 +41,7 @@ const Template = ({title, description, benefits}: TemplateProps) => (
               margin: 0 -10px;
             }
             ${from.desktop} {
+              margin-right: -20px;
               grid-row-start: content;
               display: none;
             }
@@ -131,6 +132,7 @@ const Template = ({title, description, benefits}: TemplateProps) => (
       rowGap: "12px",
     }}>
        */}
+    {/* <Footer /> */}
     <Footer />
     {/* </Grid> */}
   </>

@@ -35,7 +35,7 @@ const Home = ({ links }: InferGetStaticPropsType<typeof getStaticProps>) => (
 
     <ul>
       {links.map((link) => (
-        <li>
+        <li key={link}>
           <Link key={link} href={basePath + link.replace("index", "")}>
             {link.replaceAll(/-/g, " ")}
           </Link>

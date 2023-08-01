@@ -1,20 +1,9 @@
 import { css } from "@emotion/react";
 import { Button } from "@guardian/source-react-components";
-import {
-  fontWeights,
-  fonts,
-  palette,
-  space,
-} from "@guardian/source-foundations";
+import { fonts, palette, space } from "@guardian/source-foundations";
 import { Image } from "../../shared/Image";
 import Head from "next/head";
-import {
-  Content,
-  Grid,
-  LeftColumn,
-  MainColumn,
-  Lines,
-} from "../../shared/Grid";
+import { Grid, LeftColumn, MainColumn, Lines } from "../../shared/Grid";
 import { Header } from "../../shared/Header";
 import { Footer } from "../../shared/Footer";
 

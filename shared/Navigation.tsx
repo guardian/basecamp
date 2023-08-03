@@ -29,22 +29,35 @@ const navLink = css`
   ::after {
     content: "";
     position: absolute;
-    right: -10px;
     top: 0;
-    height: 70%;
+    left: 0;
+    right: 0;
+    height: 100%;
     border-right: 1px solid ${palette.brand[600]};
+  }
+
+  ${from.tablet} {
+    ::after {
+      right: -10px;
+      height: 70%;
+    }
   }
 `;
 
 const pillarColour = css`
   position: absolute;
   top: 0;
-  left: -10px;
-  right: -10px;
+  left: 0;
+  right: 0;
   height: 4px;
   transform-origin: top;
   transform: scaleY(0);
   transition: transform 0.3s;
+
+  ${from.tablet} {
+    left: -10px;
+    right: -10px;
+  }
 
   *:hover > & {
     transform: scaleY(1);
@@ -77,7 +90,15 @@ export const Navigation = ({ gridRowStart }: Props) => (
 
       display: grid;
       grid-template-columns: repeat(5, auto) 1fr;
-      gap: 20px;
+      margin: 0 -10px;
+
+      ${from.mobileLandscape} {
+        margin: 0;
+      }
+
+      ${from.tablet} {
+        gap: 20px;
+      }
 
       ${from.desktop} {
         grid-template-columns: repeat(10, 60px) 1fr;

@@ -13,9 +13,8 @@ type Props = {
 
 export const Image = ({ src, alt, width, height }: Props) => (
   <img
+    style={{aspectRatio: `${width} / ${height}`, width: '100%'}}
     src={getImageUrl({ src, width })}
-    width={width}
-    height={height}
     alt={alt}
   />
 );

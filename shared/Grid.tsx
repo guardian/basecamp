@@ -159,6 +159,7 @@ export const Lines = ({
       borderLeftStyle: left ? "solid" : undefined,
       borderTopStyle: top ? "solid" : undefined,
       borderBottomStyle: bottom ? "solid" : undefined,
+      zIndex: 99
     }}
     css={css`
       border-width: 1px;
